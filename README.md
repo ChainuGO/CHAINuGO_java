@@ -76,13 +76,13 @@ Perform MD5 encryption on the plain text strToHash above to generate sign
 Create a private key
 
 ```bash
-openssl genrsa -out rsa_private_key.pem 2048
+openssl genpkey -algorithm RSA -out rsa_private_key.pem
 ```
 
 Create a public key from a private key
 
 ```bash
-openssl rsa -in rsa_private_key.pem -out rsa_public_key.pem -pubout
+openssl rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 ```
 
 Detailed explanation of the signature algorithm
@@ -373,16 +373,16 @@ Deposit/Withdrawal Transaction Callback Interface Description
 | :------ | :------------ | :---------------------------------- |
 | 1       | ETH-ETH       | ETH Network ETH                     |
 | 2       | ETH-USDT      | ETH Network USDT                    |
-| 3       | TRON-TRX      | TRON Network TRX                    |
-| 4       | TRON-USDT     | TRON Network token：USDT            |
-| 5       | BNB-BNB       | BNB Smart Chain Network BNB         |
-| 6       | BNB-USDT      | BNB Smart Chain Network token：USDT |
+| 3       | ETH-USDC      | ETH Network USDC                    |
+| 4       | TRON-TRX      | TRON Network TRX                    |
+| 5       | TRON-USDT     | TRON Network token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
 | 11      | Polygon-MATIC | Polygon Network Matic               |
 | 12      | Polygon-USDT  | Polygon Network token：USDT         |
 | 13      | Polygon-USDC  | Polygon Network token：USDC         |
-| 22      | BNB-USDC      | BNB Smart Chain Network token：USDC |
 | 23      | BNB-DAI       | BNB Smart Chain Network token：DAI  |
-| 24      | ETH-USDC      | ETH Network USDC                    |
 | 25      | ETH-DAI       | ETH Network DAI                     |
 | 130     | Optimism-ETH  | Optimism Network ETH                |
 | 131     | Optimism-WLD  | Optimism Network token：WLD         |
@@ -392,14 +392,14 @@ Deposit/Withdrawal Transaction Callback Interface Description
 
 ## 10. chain ID
 
-| Token         | Full name           | Blockchain browser address      | Chain ID unique identifier |
-| :------------ | :------------------ | :------------------------------ | :------------------------- |
-| eth           | eth                 | https://etherscan.io            | 1                          |
-| trx           | Tron                | https://tronscan.io             | 2                          |
-| btc           | btc                 | https://blockchair.com/bitcoin  | 3                          |
-| sol           | solana              | https://explorer.solana.com     | 4                          |
-| xrp           | xrp                 | https://xrpscan.com             | 5                          |
-| eth_optimism  | optimism            | https://optimistic.etherscan.io | 10                         |
-| bnb           | bnb                 | https://bscscan.com             | 56                         |
-| matic_polygon | MATIC polygon chain | https://polygonscan.com         | 137                        |
-| TON           | Toncoin             | https://tonscan.org/            | 15186                      |
+| Token         | Full name           | Blockchain browser address      |
+| :------------ | :------------------ | :------------------------------ |
+| eth           | eth                 | https://etherscan.io            |
+| trx           | Tron                | https://tronscan.io             |
+| btc           | btc                 | https://blockchair.com/bitcoin  | 
+| sol           | solana              | https://explorer.solana.com     | 
+| xrp           | xrp                 | https://xrpscan.com             |
+| eth_optimism  | optimism            | https://optimistic.etherscan.io |
+| bnb           | bnb                 | https://bscscan.com             |
+| matic_polygon | MATIC polygon chain | https://polygonscan.com         |
+| TON           | Toncoin             | https://tonscan.org/            |

@@ -78,13 +78,13 @@
 创建私钥
 
 ```bash
-openssl genrsa -out rsa_private_key.pem 2048
+openssl genpkey -algorithm RSA -out rsa_private_key.pem
 ```
 
 根据私钥创建公钥
 
 ```bash
-openssl rsa -in rsa_private_key.pem -out rsa_public_key.pem -pubout
+openssl rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 ```
 
 签名算法详解
@@ -366,16 +366,16 @@ API地址：
 | :------ | :------------ | :------------------------------- |
 | 1       | ETH-ETH       | ETH 网络 ETH                     |
 | 2       | ETH-USDT      | ETH 网络 USDT                    |
-| 3       | TRON-TRX      | TRON 网络 TRX                    |
-| 4       | TRON-USDT     | TRON 网络 token：USDT            |
-| 5       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
-| 6       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
+| 3       | ETH-USDC      | ETH 网络 USDC                    |
+| 4       | TRON-TRX      | TRON 网络 TRX                    |
+| 5       | TRON-USDT     | TRON 网络 token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
 | 11      | Polygon-MATIC | Polygon 网络 Matic               |
 | 12      | Polygon-USDT  | Polygon 网络 token：USDT         |
 | 13      | Polygon-USDC  | Polygon 网络 token：USDC         |
-| 22      | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
 | 23      | BNB-DAI       | BNB Smart Chain 网络 token：DAI  |
-| 24      | ETH-USDC      | ETH 网络 USDC                    |
 | 25      | ETH-DAI       | ETH 网络 DAI                     |
 | 130     | Optimism-ETH  | Optimism 网络 ETH                |
 | 131     | Optimism-WLD  | Optimism 网络 token：WLD         |
@@ -385,14 +385,14 @@ API地址：
 
 ## 10. 公链ID
 
-| 币名          | 全名称              | 区块链浏览器地址                | 链ID唯一标识 |
-| :------------ | :------------------ | :------------------------------ | :----------- |
-| eth           | eth                 | https://etherscan.io            | 1            |
-| trx           | Tron                | https://tronscan.io             | 2            |
-| btc           | btc                 | https://blockchair.com/bitcoin  | 3            |
-| sol           | solana              | https://explorer.solana.com     | 4            |
-| xrp           | xrp                 | https://xrpscan.com             | 5            |
-| eth_optimism  | optimism            | https://optimistic.etherscan.io | 10           |
-| bnb           | bnb                 | https://bscscan.com             | 56           |
-| matic_polygon | MATIC polygon chain | https://polygonscan.com         | 137          |
-| TON           | Toncoin             | https://tonscan.org/            | 15186        |
+| 币名          | 全名称              | 区块链浏览器地址                | 
+| :------------ | :------------------ | :------------------------------ |
+| eth           | eth                 | https://etherscan.io            |
+| trx           | Tron                | https://tronscan.io             |
+| btc           | btc                 | https://blockchair.com/bitcoin  | 
+| sol           | solana              | https://explorer.solana.com     | 
+| xrp           | xrp                 | https://xrpscan.com             |
+| eth_optimism  | optimism            | https://optimistic.etherscan.io |
+| bnb           | bnb                 | https://bscscan.com             |
+| matic_polygon | MATIC polygon chain | https://polygonscan.com         |
+| TON           | Toncoin             | https://tonscan.org/            |
