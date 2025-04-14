@@ -205,6 +205,115 @@ Request header definition
 | data.OpenId  | string | User's unique OpenId |
 | sign         | string | Platform signature   |
 
+### 4.3. Register a hot wallet
+
+* Function: Create a wallet account for the merchant corresponding to this blockchain network. The entire merchant has only this one hot wallet. The user recharges the specified amount to determine which order it comes from
+* Precondition: The user with the specified OpenId has been created successfully
+
+#### HTTP Request
+
+Production Environment API address: [https://api.chainugo.com/sdk/](https://api.chainugo.com/sdk/)
+
+Sandbox environment API address: [https://testnet.chainugo.com/sdk/](https://testnet.chainugo.com/sdk/)
+
+> POST ： `/user/order/create`
+
+#### Request Parameters
+
+| Paramter | Required | Type   | Description          |
+| :------- | :------- | :----- | :------------------- |
+| ChainID  | Y        | string | Public chain ID      |
+| OpenId   | Y        | string | User's unique OpenId |
+| Amount   | Y        | string | The user's recharge amount can only be an integer |
+
+Token 类型
+
+| TokenID | Value         | Description                         |
+| :------ | :------------ | :---------------------------------- |
+| 1       | ETH-ETH       | ETH Network ETH                     |
+| 2       | ETH-USDT      | ETH Network USDT                    |
+| 3       | ETH-USDC      | ETH Network USDC                    |
+| 4       | TRON-TRX      | TRON Network TRX                    |
+| 5       | TRON-USDT     | TRON Network token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
+| 11      | Polygon-MATIC | Polygon Network Matic               |
+| 12      | Polygon-USDT  | Polygon Network token：USDT         |
+| 13      | Polygon-USDC  | Polygon Network token：USDC         |
+| 23      | BNB-DAI       | BNB Smart Chain Network token：DAI  |
+| 25      | ETH-DAI       | ETH Network DAI                     |
+| 130     | Optimism-ETH  | Optimism Network ETH                |
+| 131     | Optimism-WLD  | Optimism Network token：WLD         |
+| 132     | Optimism-USDT | Optimism Network token：USDT        |
+| 100     | BTC-BTC       | BTC Network BTC Main chain currency |
+| 200     | TON-TON       | TON Network TON Main chain currency |
+
+Request example:
+
+```bash
+curl --location 'https://testnet.chainugo.com/sdk/user/order/create' \
+--header 'key: vratson2i5hjxgkd' \
+--header 'sign: 0592dc64d480fb119d1e07ce06011db8' \
+--header 'clientSign: xxxxxxxxxxxxxxxxx' \
+--header 'Content-Type: application/json' \
+--header 'timestamp: 1725076567682' \
+--data '{
+  "OrderID":"PT00001",
+  "ChainTokenId":"7",
+  "Amount":"10"
+}'
+```
+key： parnter Key
+
+sign： The generation rules are`md5( Secret + "Send data key=value, use & to connect in the middle" + The current timestamp in milliseconds is converted into a string )`
+
+example： md5("mysecret"+"ChainId=1&OpenId=PT00001"+"1725076567682")
+
+timestamp： The current timestamp in milliseconds is converted into a string
+
+clientSign： The generation rule is `rsaWithMd5("send data key=value, use & to connect in the middle")`
+
+
+#### Return parameter description
+
+| Paramter         | Type   | Description               |
+| :-----------     | :----- | :-------------------      |
+| code             | int    | Global status code        |
+| msg              | string | Status description        |
+| data.payUrl      | string | URL address to be called  |
+| data.platOrderId | string | Platform order number     |
+| data.orderId     | string | User order number         |
+| data.amount      | float  | User application amount   |
+| data.platAmount  | float  | Platform confirmed amount |
+| data.addr        | string | Wallet address            |
+| data.token       | string | Recharge currency         |
+| data.status      | int32  | Order status: 0 = waiting for recharge, 1 = recharge successful, 2 = recharge failed |
+| data.endTime     | int64  | Order end time            |
+| sign             | string | Platform signature        |
+
+Return instance
+
+```json
+{
+    "sign": "i24t857ix3027CPiuQ+getyC7u3pJHcL/m5NiPUQwmv5XkOEdrDnckoblGXIbdO2hgjpJDg47Lbq/YoKu+NiJHGJTwu10CAYDRzyiimBfLsP9yNdnFxJLTUEfOKPSXupJdceMZL8WXF4XkMpwHCrUqhekyM+aVLDHsfROKf3uP+zdjJ++9Z//3Xukg57OBvspYGPqpgIY5fOmALiXs3DgZTdXRYYN6MBRUR3NEd1lb4dSO1AjAGkahhIjGqwaeqSO6YAcfwoj9Be48QS9CurfVxZ9xM8FvbPzPsa2W8kHG7q+Cji4NTk243LJyrQ9QFRpTDUTo5JNrJ1vne/2js8kg==",
+    "timestamp": "1725432397796",
+    "data": {
+       "payUrl": "https://tpay.chainugo.com/#/?orderId=1744634767162970DbVyK&key=411e0fee1622f47afe5c4e20750a3bb5",
+        "platOrderId": "1744634767162970DbVyK",
+        "orderId": "1744634767162970DbVyK",
+        "amount": 1,
+        "platAmount": 1.881,
+        "addr": "0x971cf1e196aaF9AB43c1FC491E1bAE945269b3E6",
+        "token": "USDT",
+        "status": 0,
+        "endTime": 1744636567
+    },
+    "msg": "ok",
+    "code": 1
+}
+```
+
 ## 5. Withdrawl
 
 ### 5.1. Partner User Withdrawal

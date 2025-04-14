@@ -207,6 +207,115 @@ API地址：
 | data.OpenId  | string | 用户的唯一 OpenId |
 | sign         | string | 平台签名          |
 
+### 4.3. 注册热钱包
+
+* 功能：创建商户对应这个区块链网络的钱包账号，整个商户只有这一个热钱包，用户充值指定的金额来确定来至哪个订单
+* 前置条件：无
+
+#### HTTP Request
+
+生产环境`API`地址：[https://api.chainugo.com/sdk/](https://api.chainugo.com/sdk/)
+
+沙盒环境`API`地址：[https://testnet.chainugo.com/sdk/](https://testnet.chainugo.com/sdk/)
+
+> POST ： `/user/order/create`
+
+#### 请求参数
+
+| 参数名  | 必选 | 类型   | 说明              |
+| :------ | :--- | :----- | :---------------- |
+| ChainTokenId | 是   | string | 链ID对应币ID唯一标识 |
+| OrderID  | 是   | string | 用户的唯一 OrderID |
+| Amount  | 是   | string | 用户的充值金额，只能整数 |
+
+Token 类型
+
+| TokenID | Value         | Description                      |
+| :------ | :------------ | :------------------------------- |
+| 1       | ETH-ETH       | ETH 网络 ETH                     |
+| 2       | ETH-USDT      | ETH 网络 USDT                    |
+| 3       | ETH-USDC      | ETH 网络 USDC                    |
+| 4       | TRON-TRX      | TRON 网络 TRX                    |
+| 5       | TRON-USDT     | TRON 网络 token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
+| 11      | Polygon-MATIC | Polygon 网络 Matic               |
+| 12      | Polygon-USDT  | Polygon 网络 token：USDT         |
+| 13      | Polygon-USDC  | Polygon 网络 token：USDC         |
+| 23      | BNB-DAI       | BNB Smart Chain 网络 token：DAI  |
+| 25      | ETH-DAI       | ETH 网络 DAI                     |
+| 130     | Optimism-ETH  | Optimism 网络 ETH                |
+| 131     | Optimism-WLD  | Optimism 网络 token：WLD         |
+| 132     | Optimism-USDT | Optimism 网络 token：USDT        |
+| 100     | BTC-BTC       | BTC 网络 BTC 主链币              |
+| 200     | TON-TON       | TON 网络 TON 主链币              |
+
+请求实例：
+
+```bash
+curl --location 'https://testnet.chainugo.com/sdk/user/order/create' \
+--header 'key: vratson2i5hjxgkd' \
+--header 'sign: 0592dc64d480fb119d1e07ce06011db8' \
+--header 'clientSign: xxxxxxxxxxxxxxxxx' \
+--header 'Content-Type: application/json' \
+--header 'timestamp: 1725076567682' \
+--data '{
+  "OrderID":"PT00001",
+  "ChainTokenId":"7",
+  "Amount":"10"
+}'
+```
+
+key： 合作伙伴的Key
+
+sign： 生成规则为`md5( 合作伙伴的Secret + "发送数据key=value，中间使用&连接" + 当前时间戳单位为毫秒转换成字符串 )`
+
+例子： md5("mysecret"+"ChainId=1&OpenId=PT00001"+"1725076567682")
+
+clientSign： 生成规则为 `rsaWithMd5( "发送数据key=value，中间使用&连接" )`
+
+timestamp： 当前时间戳单位为毫秒转换成字符串
+
+#### 返回参数说明
+
+| 参数名            | 类型   | 说明               |
+| :-----------     | :----- | :----------------  |
+| code             | int    | 全局状态码          |
+| msg              | string | 状态描述            |
+| data.payUrl      | string | 调用的url地址       |
+| data.platOrderId | string | 平台订单编号        |
+| data.orderId     | string | 用户订单编号        |
+| data.amount      | float  | 用户申请金额        |
+| data.platAmount  | float  | 平台确认金额        |
+| data.addr        | string | 充值地址            |
+| data.token       | string | 充值币种            |
+| data.status      | int32  | 订单状态：0=等待充值，1=充值成功，2=充值失败 |
+| data.endTime     | int64  | 订单结束时间        |
+| sign             | string | 平台签名            |
+
+返回实例
+
+```json
+{
+    "sign": "i24t857ix3027CPiuQ+getyC7u3pJHcL/m5NiPUQwmv5XkOEdrDnckoblGXIbdO2hgjpJDg47Lbq/YoKu+NiJHGJTwu10CAYDRzyiimBfLsP9yNdnFxJLTUEfOKPSXupJdceMZL8WXF4XkMpwHCrUqhekyM+aVLDHsfROKf3uP+zdjJ++9Z//3Xukg57OBvspYGPqpgIY5fOmALiXs3DgZTdXRYYN6MBRUR3NEd1lb4dSO1AjAGkahhIjGqwaeqSO6YAcfwoj9Be48QS9CurfVxZ9xM8FvbPzPsa2W8kHG7q+Cji4NTk243LJyrQ9QFRpTDUTo5JNrJ1vne/2js8kg==",
+    "timestamp": "1725432397796",
+    "data": {
+       "payUrl": "https://tpay.chainugo.com/#/?orderId=1744634767162970DbVyK&key=411e0fee1622f47afe5c4e20750a3bb5",
+        "platOrderId": "1744634767162970DbVyK",
+        "orderId": "1744634767162970DbVyK",
+        "amount": 1,
+        "platAmount": 1.881,
+        "addr": "0x971cf1e196aaF9AB43c1FC491E1bAE945269b3E6",
+        "token": "USDT",
+        "status": 0,
+        "endTime": 1744636567
+    },
+    "msg": "ok",
+    "code": 1
+}
+```
+
 ## 5. 提现
 
 ### 5.1. 合作伙伴用户提现
