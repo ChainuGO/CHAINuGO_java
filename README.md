@@ -238,16 +238,9 @@ Token 类型
 | 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
 | 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
 | 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
-| 11      | Polygon-MATIC | Polygon Network Matic               |
-| 12      | Polygon-USDT  | Polygon Network token：USDT         |
-| 13      | Polygon-USDC  | Polygon Network token：USDC         |
-| 23      | BNB-DAI       | BNB Smart Chain Network token：DAI  |
-| 25      | ETH-DAI       | ETH Network DAI                     |
-| 130     | Optimism-ETH  | Optimism Network ETH                |
-| 131     | Optimism-WLD  | Optimism Network token：WLD         |
-| 132     | Optimism-USDT | Optimism Network token：USDT        |
-| 100     | BTC-BTC       | BTC Network BTC Main chain currency |
-| 200     | TON-TON       | TON Network TON Main chain currency |
+| 9       | ARB-ETH      | Arbitrum One Network token：ETH |
+| 10       | ARB-USDT      | Arbitrum One Network token：USDT |
+| 11       | ARB-USDC      | Arbitrum One Network token：USDC |
 
 Request example:
 
@@ -488,16 +481,9 @@ Deposit/Withdrawal Transaction Callback Interface Description
 | 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
 | 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
 | 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
-| 11      | Polygon-MATIC | Polygon Network Matic               |
-| 12      | Polygon-USDT  | Polygon Network token：USDT         |
-| 13      | Polygon-USDC  | Polygon Network token：USDC         |
-| 23      | BNB-DAI       | BNB Smart Chain Network token：DAI  |
-| 25      | ETH-DAI       | ETH Network DAI                     |
-| 130     | Optimism-ETH  | Optimism Network ETH                |
-| 131     | Optimism-WLD  | Optimism Network token：WLD         |
-| 132     | Optimism-USDT | Optimism Network token：USDT        |
-| 100     | BTC-BTC       | BTC Network BTC Main chain currency |
-| 200     | TON-TON       | TON Network TON Main chain currency |
+| 9       | ARB-ETH      | Arbitrum One Network token：ETH |
+| 10       | ARB-USDT      | Arbitrum One Network token：USDT |
+| 11       | ARB-USDC      | Arbitrum One Network token：USDC |
 
 ## 10. chain ID
 
@@ -512,3 +498,4 @@ Deposit/Withdrawal Transaction Callback Interface Description
 | bnb           | bnb                 | https://bscscan.com             |
 | matic_polygon | MATIC polygon chain | https://polygonscan.com         |
 | TON           | Toncoin             | https://tonscan.org/            |
+| ARB           | Arbitrum One        | https://arbiscan.io/            |

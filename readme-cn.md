@@ -240,16 +240,9 @@ Token 类型
 | 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
 | 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
 | 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
-| 11      | Polygon-MATIC | Polygon 网络 Matic               |
-| 12      | Polygon-USDT  | Polygon 网络 token：USDT         |
-| 13      | Polygon-USDC  | Polygon 网络 token：USDC         |
-| 23      | BNB-DAI       | BNB Smart Chain 网络 token：DAI  |
-| 25      | ETH-DAI       | ETH 网络 DAI                     |
-| 130     | Optimism-ETH  | Optimism 网络 ETH                |
-| 131     | Optimism-WLD  | Optimism 网络 token：WLD         |
-| 132     | Optimism-USDT | Optimism 网络 token：USDT        |
-| 100     | BTC-BTC       | BTC 网络 BTC 主链币              |
-| 200     | TON-TON       | TON 网络 TON 主链币              |
+| 9       | ARB-ETH      | Arbitrum One 网络 token：ETH |
+| 10       | ARB-USDT      | Arbitrum One 网络 token：USDT |
+| 11       | ARB-USDC      | Arbitrum One 网络 token：USDC |
 
 请求实例：
 
@@ -481,16 +474,9 @@ timestamp： 当前时间戳单位为毫秒转换成字符串
 | 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
 | 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
 | 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
-| 11      | Polygon-MATIC | Polygon 网络 Matic               |
-| 12      | Polygon-USDT  | Polygon 网络 token：USDT         |
-| 13      | Polygon-USDC  | Polygon 网络 token：USDC         |
-| 23      | BNB-DAI       | BNB Smart Chain 网络 token：DAI  |
-| 25      | ETH-DAI       | ETH 网络 DAI                     |
-| 130     | Optimism-ETH  | Optimism 网络 ETH                |
-| 131     | Optimism-WLD  | Optimism 网络 token：WLD         |
-| 132     | Optimism-USDT | Optimism 网络 token：USDT        |
-| 100     | BTC-BTC       | BTC 网络 BTC 主链币              |
-| 200     | TON-TON       | TON 网络 TON 主链币              |
+| 9       | ARB-ETH      | Arbitrum One 网络 token：ETH |
+| 10       | ARB-USDT      | Arbitrum One 网络 token：USDT |
+| 11       | ARB-USDC      | Arbitrum One 网络 token：USDC |
 
 ## 10. 公链ID
 
@@ -505,3 +491,4 @@ timestamp： 当前时间戳单位为毫秒转换成字符串
 | bnb           | bnb                 | https://bscscan.com             |
 | matic_polygon | MATIC polygon chain | https://polygonscan.com         |
 | TON           | Toncoin             | https://tonscan.org/            |
+| ARB           | Arbitrum One        | https://arbiscan.io/            |
