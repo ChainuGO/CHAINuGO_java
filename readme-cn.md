@@ -232,17 +232,37 @@ Token 类型
 
 | TokenID | Value         | Description                      |
 | :------ | :------------ | :------------------------------- |
-| 1       | ETH-ETH       | ETH 网络 ETH                     |
-| 2       | ETH-USDT      | ETH 网络 USDT                    |
-| 3       | ETH-USDC      | ETH 网络 USDC                    |
-| 4       | TRON-TRX      | TRON 网络 TRX                    |
-| 5       | TRON-USDT     | TRON 网络 token：USDT            |
-| 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
-| 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
-| 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
-| 9       | ARB-ETH      | Arbitrum One 网络 token：ETH |
-| 10       | ARB-USDT      | Arbitrum One 网络 token：USDT |
-| 11       | ARB-USDC      | Arbitrum One 网络 token：USDC |
+| 1       | ETH-ETH       | ETH Network ETH                     |
+| 2       | ETH-USDT      | ETH Network USDT                    |
+| 3       | ETH-USDC      | ETH Network USDC                    |
+| 4       | TRON-TRX      | TRON Network TRX                    |
+| 5       | TRON-USDT     | TRON Network token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
+| 9       | ARB-ETH       | Arbitrum One Network token：ETH     |
+| 10       | ARB-USDT      | Arbitrum One Network token：USDT   |
+| 11       | ARB-USDC      | Arbitrum One Network token：USDC   |
+|12	       |ARB-DAI        | Arbitrum One Network token：DAI    |
+|13	       |ETH-DAI        | ETH Network DAI                    |
+|14        |TRON-USDD      |TRON  Network  USDD                 |
+|15	       |BNB-ETH        |BNB  Network  ETH                   |
+|16	       |BNB-DAI        |BNB  Network  DAI                    |
+|17	       |Optimism-ETH   |Optimism  Network  ETH              |
+|18        |Optimism-USDT  |Optimism  Network  USDT             |
+|19	       |Optimism-USDC  |Optimism  Network  USDC             |
+|20	       |Polygon-MATIC  |Polygon  Network  MATIC             |
+|21	       |Polygon-USDT   |Polygon  Network  USDT              |
+|22	       |Polygon-USDC   |Polygon  Network  USDC              |
+|23	       |Base-ETH       |Base  Network  ETH                  |
+|24	       |Base-USDC      |Base  Network  ETH                  |
+|25	       |AVAX-AVAX      |AVAX  Network  AVAX                 |
+|26	       |AVAX-USDT      |AVAX  Network  USDT                 |
+|27	       |AVAX-USDC      |AVAX  Network  USDC                 |
+|28	       |OpBNB-BNB      |OpBNB  Network  BNB                 |
+|29	       |OpBNB-USDT     |OpBNB  Network  USDT                |
+|30        |TRON-USDC      |TRON  Network  USDC                 |
+|31        |BNB-BTCB       |BNB  Network  BTCB                  |
 
 请求实例：
 
@@ -466,17 +486,37 @@ timestamp： 当前时间戳单位为毫秒转换成字符串
 
 | TokenID | Value         | Description                      |
 | :------ | :------------ | :------------------------------- |
-| 1       | ETH-ETH       | ETH 网络 ETH                     |
-| 2       | ETH-USDT      | ETH 网络 USDT                    |
-| 3       | ETH-USDC      | ETH 网络 USDC                    |
-| 4       | TRON-TRX      | TRON 网络 TRX                    |
-| 5       | TRON-USDT     | TRON 网络 token：USDT            |
-| 6       | BNB-BNB       | BNB Smart Chain 网络 BNB         |
-| 7       | BNB-USDT      | BNB Smart Chain 网络 token：USDT |
-| 8       | BNB-USDC      | BNB Smart Chain 网络 token：USDC |
-| 9       | ARB-ETH      | Arbitrum One 网络 token：ETH |
-| 10       | ARB-USDT      | Arbitrum One 网络 token：USDT |
-| 11       | ARB-USDC      | Arbitrum One 网络 token：USDC |
+| 1       | ETH-ETH       | ETH Network ETH                     |
+| 2       | ETH-USDT      | ETH Network USDT                    |
+| 3       | ETH-USDC      | ETH Network USDC                    |
+| 4       | TRON-TRX      | TRON Network TRX                    |
+| 5       | TRON-USDT     | TRON Network token：USDT            |
+| 6       | BNB-BNB       | BNB Smart Chain Network BNB         |
+| 7       | BNB-USDT      | BNB Smart Chain Network token：USDT |
+| 8       | BNB-USDC      | BNB Smart Chain Network token：USDC |
+| 9       | ARB-ETH       | Arbitrum One Network token：ETH     |
+| 10       | ARB-USDT      | Arbitrum One Network token：USDT   |
+| 11       | ARB-USDC      | Arbitrum One Network token：USDC   |
+|12	       |ARB-DAI        | Arbitrum One Network token：DAI    |
+|13	       |ETH-DAI        | ETH Network DAI                    |
+|14        |TRON-USDD      |TRON  Network  USDD                 |
+|15	       |BNB-ETH        |BNB  Network  ETH                   |
+|16	       |BNB-DAI        |BNB  Network  DAI                    |
+|17	       |Optimism-ETH   |Optimism  Network  ETH              |
+|18        |Optimism-USDT  |Optimism  Network  USDT             |
+|19	       |Optimism-USDC  |Optimism  Network  USDC             |
+|20	       |Polygon-MATIC  |Polygon  Network  MATIC             |
+|21	       |Polygon-USDT   |Polygon  Network  USDT              |
+|22	       |Polygon-USDC   |Polygon  Network  USDC              |
+|23	       |Base-ETH       |Base  Network  ETH                  |
+|24	       |Base-USDC      |Base  Network  ETH                  |
+|25	       |AVAX-AVAX      |AVAX  Network  AVAX                 |
+|26	       |AVAX-USDT      |AVAX  Network  USDT                 |
+|27	       |AVAX-USDC      |AVAX  Network  USDC                 |
+|28	       |OpBNB-BNB      |OpBNB  Network  BNB                 |
+|29	       |OpBNB-USDT     |OpBNB  Network  USDT                |
+|30        |TRON-USDC      |TRON  Network  USDC                 |
+|31        |BNB-BTCB       |BNB  Network  BTCB                  |
 
 ## 10. 公链ID
 
